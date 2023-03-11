@@ -13,6 +13,11 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """ initializes the instance with three public instance attributes
             : id, created_at, and updated_at.
+
+            Attributes:
+                id(string) - uuid when an instance is created
+                created_at(datetime) - current datetime when an instance is created
+                updated_at(datetime) - current datetime when an instance is created and it will be updated every time you change your object
         """
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
