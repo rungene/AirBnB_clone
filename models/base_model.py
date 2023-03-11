@@ -16,8 +16,11 @@ class BaseModel:
 
             Attributes:
                 id(string) - uuid when an instance is created
-                created_at(datetime) - current datetime when an instance is created
-                updated_at(datetime) - current datetime when an instance is created and it will be updated every time you change your object
+                created_at(datetime) - current datetime when
+                an instance is created
+                updated_at(datetime) - current datetime when
+                an instance is created
+                and it will be updated every time you change your object
         """
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
@@ -38,7 +41,7 @@ class BaseModel:
 
     def to_dict(self):
         """defined to convert the instance to a dictionary representation.
-           
+
            Return:
             obj_dict(dictionary): Dictionary object containing __dict__
         """
