@@ -24,20 +24,20 @@ class BaseModel:
         """
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
-        self.updated_at = save()
+        self.updated_at = datetime.now()
 
     def __str__(self):
         """ defined to return a string representation of the instance.
               It formats the string using the class name, id,
                 and __dict__ attribute of the instance.
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__
-                                     dict__)
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
+                                     self.__dict__)
 
     def save(self):
         """ defined to update the updated_at attribute of the instance with
                   the current datetime using the datetime.now() method."""
-        return datetime.now()
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         """defined to convert the instance to a dictionary representation.
