@@ -5,8 +5,8 @@ Concepts
 ```
 For this project, we expect you to look at these concepts:
 
-. [Python packages](https://intranet.alxswe.com/concepts/66)
-. [AirBnB clone](https://intranet.alxswe.com/concepts/74)
+- [Python packages](https://intranet.alxswe.com/concepts/66)
+- [AirBnB clone](https://intranet.alxswe.com/concepts/74)
 
 ![AirBnB clone](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230310%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230310T124943Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=4388b1671c31de16681aa6c6bd4c7889340622d664bae34458c76d5f6ccde4cd)
 
@@ -44,16 +44,16 @@ Do you remember the Shell? It’s exactly the same but limited to a specific use
 
 **Read or watch:**
 
-. [cmd module](https://docs.python.org/3.8/library/cmd.html)
-. [cmd module in depth](http://pymotw.com/2/cmd/)
-. [uuid module](https://docs.python.org/3.8/library/uuid.html)
-. packages concept page
-. [datetime](https://docs.python.org/3.8/library/datetime.html)
-. [unittest module](https://docs.python.org/3.8/library/unittest.html#module-unittest)
-. [args/kwargs](https://yasoob.me/2013/08/04/args-and-kwargs-in-python-explained/)
-. [Python test cheatsheet](https://www.pythonsheets.com/notes/python-tests.html)
-. [cmd module wiki page](https://wiki.python.org/moin/CmdModule)
-. [python unittest](https://realpython.com/python-testing/)
+- [cmd module](https://docs.python.org/3.8/library/cmd.html)
+- [cmd module in depth](http://pymotw.com/2/cmd/)
+- [uuid module](https://docs.python.org/3.8/library/uuid.html)
+- packages concept page
+- [datetime](https://docs.python.org/3.8/library/datetime.html)
+- [unittest module](https://docs.python.org/3.8/library/unittest.html#module-unittest)
+- [args/kwargs](https://yasoob.me/2013/08/04/args-and-kwargs-in-python-explained/)
+- [Python test cheatsheet](https://www.pythonsheets.com/notes/python-tests.html)
+- [cmd module wiki page](https://wiki.python.org/moin/CmdModule)
+- [python unittest](https://realpython.com/python-testing/)
 
 # Learning Objectives
 
