@@ -177,3 +177,12 @@ All tests should also pass in non-interactive mode: $ echo "python3 -m unittest 
 		- examples
 	- You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. For format, reference [Docker’s AUTHORS page](https://github.com/moby/moby/blob/master/AUTHORS)
 	- You should use branches and pull requests on GitHub - it will help you as team to organize your work
+
+```
+1. Be pycodestyle compliant! 
+```
+Write beautiful code that passes the pycodestyle checks.
+
+**Repo:**
+
+	- GitHub repository: AirBnB_clone
