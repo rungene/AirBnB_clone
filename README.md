@@ -166,3 +166,14 @@ All tests should also pass in non-interactive mode: $ echo "python3 -m unittest 
 ![AirBnB clone](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230310%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230310T124943Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=277655f5bdb4ea0fbdf9fe1586adeaf5f36eb45beeaab65f4d76de26260610de)
 
 [![SE - HBNB - The console](https://img.youtube.com/vi/1mAC9x3aixE/maxresdefault.jpg)](https://www.youtube.com/watch?v=1mAC9x3aixE)
+
+```
+0. README, AUTHORS 
+```
+	- Write a README.md: 
+	- description of the project
+		- how to start it
+		- how to use it
+		- examples
+	- You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. For format, reference [Docker’s AUTHORS page](https://github.com/moby/moby/blob/master/AUTHORS)
+	- You should use branches and pull requests on GitHub - it will help you as team to organize your work
