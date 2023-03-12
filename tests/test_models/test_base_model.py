@@ -90,3 +90,18 @@ class TestBaseModel(unittest.TestCase):
         self.BM.l_name = "Lawrence"
         self.assertEqual(self.BM.f_name, "Rungene")
         self.assertEqual(self.BM.l_name, "Lawrence")
+
+    def test_str(self):
+        """test str method
+        """
+        string = str(self.BM)
+        BMstr = "[{}] ({}) {}".format(self.BM.__class__.__name__, self.BM.id,
+                                      self.BM.__dict__)
+        test_val = BMstr in string
+        self.assertEqual(True, test_val)
+        test_val = 'updated_at' in string
+        self.assertEqual(True, test_val)
+        tet_val = 'created_at' in string
+        self.assertEqual(True, test_val)
+        test_val = 'datetime' in string
+        self.assertEqual(True, test_val)
