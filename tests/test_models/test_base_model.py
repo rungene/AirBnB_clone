@@ -9,6 +9,7 @@ import unittest
 from models.base_model import BaseModel
 import inspect
 import pep8
+from datetime import datetime
 
 
 class TestBaseModel(unittest.TestCase):
@@ -105,3 +106,15 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(True, test_val)
         test_val = 'datetime' in string
         self.assertEqual(True, test_val)
+
+    def test_to_dict(self):
+        """test to_dict method
+        """
+        my_dict = self.BM.to_dict()
+        self.assertEqual(str, type(my_dict['created_at']))
+        self.assertEqual(my_dict['created_at'],
+                         self.BM.created_at.isoformat())
+        self.assertEqual(datetime, type(self.BM.created_at))
+        self.assertEqual(my_dict['__class__'],
+                         self.BM.__class__.__name__)
+        self.assertEqual(my_dict['id'], self.BM.id)
