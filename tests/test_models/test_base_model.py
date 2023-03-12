@@ -81,3 +81,12 @@ class TestBaseModel(unittest.TestCase):
         """
         self.assertIsInstance(self.BM, BaseModel)
         self.assertEqual(type(self.BM), BaseModel)
+
+    def test_basic_attributes_areset(self):
+        """test for proper assignment
+        for attributes(basic)
+        """
+        self.BM.f_name = "Rungene"
+        self.BM.l_name = "Lawrence"
+        self.assertEqual(self.BM.f_name, "Rungene")
+        self.assertEqual(self.BM.l_name, "Lawrence")
