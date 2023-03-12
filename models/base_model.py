@@ -13,6 +13,14 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """ initializes the instance with three public instance attributes
             : id, created_at, and updated_at.
+
+            Attributes:
+                id(string) - uuid when an instance is created
+                created_at(datetime) - current datetime when
+                an instance is created
+                updated_at(datetime) - current datetime when
+                an instance is created
+                and it will be updated every time you change your object
         """
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
@@ -23,8 +31,8 @@ class BaseModel:
               It formats the string using the class name, id,
                 and __dict__ attribute of the instance.
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__
-                                     dict__)
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
+                                     self.__dict__)
 
     def save(self):
         """ defined to update the updated_at attribute of the instance with
@@ -32,7 +40,11 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        """defined to convert the instance to a dictionary representation."""
+        """defined to convert the instance to a dictionary representation.
+
+           Return:
+            obj_dict(dictionary): Dictionary object containing __dict__
+        """
         obj_dict = self.__dict__.copy()
         obj_dict['__class__'] = self.__class__.__name__
         obj_dict['created_at'] = self.created_at.isoformat()
