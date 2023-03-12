@@ -74,3 +74,10 @@ class TestBaseModel(unittest.TestCase):
         """
         for doc_mthd in self.setup:
             self.assertTrue(len(doc_mthd[1].__doc__) >= 1)
+
+    def test_type_basemodel(self):
+        """
+        test if Basemodel type
+        """
+        self.assertIsInstance(self.BM, BaseModel)
+        self.assertEqual(type(self.BM), BaseModel)
