@@ -6,10 +6,13 @@ Created on Monday 13.02.2023
 """
 
 import unittest
+import os
 from models.base_model import BaseModel
 import inspect
 import pep8
 from datetime import datetime
+import sys
+sys.path.append('.')
 
 
 class TestBaseModel(unittest.TestCase):
@@ -137,3 +140,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(BM1.created_at, self.BM.created_at.isoformat())
         self.assertEqual(BM1.__class__.__name__,
                          self.BM.__class__.__name__)
+
+
+if __name__ == "__main__":
+    unittest.main()
