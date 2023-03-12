@@ -118,3 +118,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(my_dict['__class__'],
                          self.BM.__class__.__name__)
         self.assertEqual(my_dict['id'], self.BM.id)
+
+    def test_to_dict_more(self):
+        """more test to_dict method
+        """
+        my_dict = self.BM.to_dict()
+        created_at = my_dict['created_at']
+        time = datetime.strptime(created_at, "%Y-%m-%dT%H:%M:%S.%f")
+        self.assertEqual(self.BM.created_at, time)
