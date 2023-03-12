@@ -118,3 +118,22 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(my_dict['__class__'],
                          self.BM.__class__.__name__)
         self.assertEqual(my_dict['id'], self.BM.id)
+
+    def test_to_dict_more(self):
+        """more test to_dict method
+        """
+        my_dict = self.BM.to_dict()
+        created_at = my_dict['created_at']
+        time = datetime.strptime(created_at, "%Y-%m-%dT%H:%M:%S.%f")
+        self.assertEqual(self.BM.created_at, time)
+
+    def test_from_dict_basic(self):
+        """test from dictonary to object
+        """
+        my_dict = self.BM.to_dict()
+        BM1 = BaseModel(**my_dict)
+        self.assertEqual(BM1.id, self.BM.id)
+        self.assertEqual(BM1.updated_at, self.BM.updated_at.isoformat())
+        self.assertEqual(BM1.created_at, self.BM.created_at.isoformat())
+        self.assertEqual(BM1.__class__.__name__,
+                         self.BM.__class__.__name__)
