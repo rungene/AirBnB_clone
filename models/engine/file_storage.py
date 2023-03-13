@@ -43,7 +43,7 @@ class FileStorage:
             obj(Python object): The object to set
         """
         dictionary = obj.to_dict()
-        key = '{}{}'.format(dictionary['__class__'], str(obj.id))
+        key = '{}.{}'.format(dictionary['__class__'], str(obj.id))
         FileStorage.__objects[key] = obj
 
     def save(self):
