@@ -23,19 +23,18 @@ class BaseModel:
                 an instance is created
                 and it will be updated every time you change your object
         """
-        if kwargs:
-            for key, value in kwargs.items():
-                if key == 'created_at' or key == 'updated_at':
-                    value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
-                if key != '__class__':
-                    setattr(self, key, value)
-            self.id = kwargs.get('id', str(uuid.uuid4()))
-            self.created_at = kwargs.get('created_at', datetime.now())
-            self.updated_at = kwargs.get('updated_at', datetime.now())
+        if len(kwargs) > 0:
+            for k, v in kwargs.items():
+                if k in ['created_at', 'updated_at']:
+                    self.__dict__[k] = datetime\
+                                       .strptime(v, '%Y-%m-%dT%H:%M:%S.%f')
+                elif k == 'id':
+                    self.id = v
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         """ defined to return a string representation of the instance.
@@ -49,6 +48,7 @@ class BaseModel:
         """ defined to update the updated_at attribute of the instance with
                   the current datetime using the datetime.now() method."""
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """defined to convert the instance to a dictionary representation.
