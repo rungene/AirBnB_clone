@@ -6,11 +6,15 @@ Created on Mon March 13 14:22:17 2023
          Lawrence Ongaki
 """
 import cmd
+import models
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
     """ A class containig the command interpreter entry"""
     prompt = '(hbnb)'
+
+    list_class = ['BaseModel']
 
     def do_EOF(self, args):
         """EOF to exit the program
@@ -31,6 +35,33 @@ class HBNBCommand(cmd.Cmd):
         """method to do nothing after each console loop
         """
         pass
+
+    def do_create(self, args):
+        """Create command to create a new instance of BaseModel, save it
+        in a JSON file and prints the id
+
+        Attributes:
+            args(str) inputted line in a command prompt
+        """
+        my_args = args.split()
+        if not self.class_exists(my_args):
+            return
+        instance = eval(line[0] + '()')
+        if isinstance(instance, BaseModel):
+            instance.save()
+            print(instance.id)
+        return
+
+    @classmethod
+    def class_exists(cls, line):
+        """class method that verifies inputted class"""
+        if len(line) == 0:
+            print('** class name missing **')
+            return False
+        elif line[0] not in HBNBCommand.list_class:
+            print('** class doesn\'t exist **')
+            return False
+        return True
 
 
 if __name__ == '__main__':
