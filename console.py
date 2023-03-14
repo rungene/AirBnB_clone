@@ -46,7 +46,7 @@ class HBNBCommand(cmd.Cmd):
         my_args = args.split()
         if not self.class_exists(my_args):
             return
-        instance = eval(line[0] + '()')
+        instance = eval(my_args[0] + '()')
         if isinstance(instance, BaseModel):
             instance.save()
             print(instance.id)
