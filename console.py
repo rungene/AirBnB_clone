@@ -52,6 +52,22 @@ class HBNBCommand(cmd.Cmd):
             print(instance.id)
         return
 
+    def show(self, args):
+        """Prints the string representation of an instance based on
+        the class name and id
+
+        Attributes:
+            args(str) inputted line in command prompt
+        """
+        my_args = args.split()
+        if not self.class_exists(my_args):
+            return
+        elif not self.id_exists(my_args):
+            return
+        key = '{}.{}'.format(line[0], line[1])
+        objects = models.storage.all()
+        print(objects[key])
+
     @classmethod
     def class_exists(cls, line):
         """class method that verifies inputted class"""
@@ -60,6 +76,19 @@ class HBNBCommand(cmd.Cmd):
             return False
         elif line[0] not in HBNBCommand.list_class:
             print('** class doesn\'t exist **')
+            return False
+        return True
+
+    @staticmethod
+    def id_exists(line):
+        """static method verifiess inputted instance id"""
+        if len(line) < 2:
+            print('** instance id missing **')
+            return False
+        objects = models.storage.all()
+        key = '{}.{}'.format(line[0], line[1])
+        if key not in objects.keys():
+            print('** no instance found **')
             return False
         return True
 
