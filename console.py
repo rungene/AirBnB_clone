@@ -68,6 +68,23 @@ class HBNBCommand(cmd.Cmd):
         objects = models.storage.all()
         print(objects[key])
 
+    def do_destroy(self, args):
+        """Deletes an instance based on the class name
+        and id
+
+        Attributes:
+            args(str) inputted line in command prompt
+        """
+        my_args = args.split()
+        if not self.class_exists(my_args):
+            return
+        elif not self.id_exist(my_args):
+            return
+        key = '{}.{}'.format(line[0], line[1])
+        objects = models.storage.all()
+        del objects[key]
+        models.storage.save()
+
     @classmethod
     def class_exists(cls, line):
         """class method that verifies inputted class"""
@@ -91,6 +108,7 @@ class HBNBCommand(cmd.Cmd):
             print('** no instance found **')
             return False
         return True
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
