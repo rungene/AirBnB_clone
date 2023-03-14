@@ -107,6 +107,26 @@ class HBNBCommand(cmd.Cmd):
             return False
         print(to_print)
 
+    def update(self, args):
+        """Updates an instance based on the class name
+        and id by adding or updating attribute
+        (save the change into the JSON file).
+
+        Attrribute:
+            args (str): inputted line in command prompt.
+        """
+        my_args = args.split()
+        if not self.class_exists(my_args):
+            return
+        elif not self.id_exists(my_args):
+            return
+        elif not self.attribute_exists(my_args):
+            return
+        objects = models.storage.all()
+        key = '{}.{}'.format(my_args[0], my_args[1])
+        setattr(objects[key], my_args[2], my_args[3])
+        models.storage.save()
+
     @classmethod
     def class_exists(cls, line):
         """class method that verifies inputted class"""
@@ -128,6 +148,17 @@ class HBNBCommand(cmd.Cmd):
         key = '{}.{}'.format(line[0], line[1])
         if key not in objects.keys():
             print('** no instance found **')
+            return False
+        return True
+
+    @staticmethod
+    def attribute_exists(line):
+        """static method verifies inputted instance attribute"""
+        if len(line) < 3:
+            print("** attribute name missing **")
+            return False
+        elif len(line) < 4:
+            print("** value missing **")
             return False
         return True
 
