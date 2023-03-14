@@ -107,7 +107,7 @@ class HBNBCommand(cmd.Cmd):
             return False
         print(to_print)
 
-    def update(self, args):
+    def do_update(self, args):
         """Updates an instance based on the class name
         and id by adding or updating attribute
         (save the change into the JSON file).
