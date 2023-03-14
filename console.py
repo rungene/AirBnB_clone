@@ -64,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
             return
         elif not self.id_exists(my_args):
             return
-        key = '{}.{}'.format(line[0], line[1])
+        key = '{}.{}'.format(my_args[0], my_args[1])
         objects = models.storage.all()
         print(objects[key])
 
