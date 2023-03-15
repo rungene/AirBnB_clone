@@ -9,6 +9,7 @@
 from models.base_model import BaseModel
 from models.user import User
 import json
+import os
 import models
 
 class FileStorage:
@@ -58,13 +59,24 @@ class FileStorage:
         (__file_path) exists ; otherwise, do nothing. If the file doesn’t
         exist, no exception should be raised)
         """
-        try:
-            with open(FileStorage.__file_path, 'r', encoding='utf-8') as file:
-                json_load = json.load(file)
-            for k, v in json_load.items():
-                cls_name = v['__class__']
-                cls = getattr(models, cls_name)
-                FileStorage.__objects[k] = cls(**v)
-        except FileNotFoundError:
-            pass
+        # Validate if file exists
+        if os.path.isfile(self.__file_path):
+            with open(self.__file_path, 'r') as f:
+                des_json = json.load(f)
+                for key, value in des_json.items():
+                    # Separate name_class from id and split the separator
+                    k = key.split('.')
+                    # search "__class__": "BaseModel"
+                    class_name = k[0]
+                    # set in __objects the key, value
+                    self.new(eval("{}".format(class_name))(**value))
 
+#try:
+#           with open(FileStorage.__file_path, 'r', encoding='utf-8') as file:
+#               json_load = json.load(file)
+#           for k, v in json_load.items():
+#               cls_name = v['__class__']
+#               cls = getattr(models, cls_name)
+#               FileStorage.__objects[k] = cls(**v)
+#       except FileNotFoundError:
+#           pass
