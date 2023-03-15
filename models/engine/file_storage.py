@@ -2,7 +2,6 @@
 """
 @authors: Clevers Rungene
           Lawrence Ongaki
-
     File Storage Module
 """
 from models.base_model import BaseModel
@@ -19,7 +18,6 @@ class FileStorage:
     """
     FileStorage class for serialization/deserialization objects
     into and from files.
-
     Attributes:
         __file_path(string) - path to the JSON file
         __objects (dictionary) - empty but will store all
@@ -44,7 +42,6 @@ class FileStorage:
     def new(self, obj):
         """
         sets in __objects the obj with key <obj class name>.id
-
         Attributes:
             obj(Python object): The object to set
         """
