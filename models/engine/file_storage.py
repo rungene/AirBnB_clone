@@ -5,15 +5,17 @@
 
     File Storage Module
 """
+
 from models.base_model import BaseModel
+from models.user import User
 import json
+import models
 
 
 class FileStorage:
     """
     FileStorage class for serialization/deserialization objects
     into and from files.
-
     Attributes:
         __file_path(string) - path to the JSON file
         __objects (dictionary) - empty but will store all
@@ -22,11 +24,7 @@ class FileStorage:
          the key will be BaseModel.12121212)
     """
     __file_path = 'file.json'
-    __objects = dict()
-
-    def __init__(self):
-        """Init method for file storage class"""
-        pass
+    __objects = {}
 
     def all(self):
         """public instance method
@@ -38,19 +36,18 @@ class FileStorage:
     def new(self, obj):
         """
         sets in __objects the obj with key <obj class name>.id
-
         Attributes:
             obj(Python object): The object to set
         """
         dictionary = obj.to_dict()
-        key = '{}.{}'.format(dictionary['__class__'], str(obj.id))
+        key = "{}.{}".format(dictionary['__class__'], dictionary['id'])
         FileStorage.__objects[key] = obj
 
     def save(self):
         """
         serializes __objects to the JSON file (path: __file_path)
         """
-        dictionary = dict()
+        dictionary = {}
         for k, v in FileStorage.__objects.items():
             dictionary[k] = v.to_dict()
         with open(FileStorage.__file_path, 'w', encoding='utf-8') as file:
@@ -66,6 +63,9 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r', encoding='utf-8') as file:
                 json_load = json.load(file)
             for k, v in json_load.items():
-                FileStorage.__objects[k] = BaseModel(**v)
+                cls_name = v['__class__']
+                cls = getattr(models, cls_name)
+                FileStorage.__objects[k] = cls(**v)
         except FileNotFoundError:
             pass
+
