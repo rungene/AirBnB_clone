@@ -11,7 +11,6 @@ from models.user import User
 import json
 import models
 
-
 class FileStorage:
     """
     FileStorage class for serialization/deserialization objects
