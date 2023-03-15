@@ -12,6 +12,7 @@ import json
 import os
 import models
 
+
 class FileStorage:
     """
     FileStorage class for serialization/deserialization objects
@@ -71,7 +72,7 @@ class FileStorage:
                     # set in __objects the key, value
                     self.new(eval("{}".format(class_name))(**value))
 
-#try:
+# try:
 #           with open(FileStorage.__file_path, 'r', encoding='utf-8') as file:
 #               json_load = json.load(file)
 #           for k, v in json_load.items():
