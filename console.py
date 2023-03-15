@@ -8,13 +8,14 @@ Created on Mon March 13 14:22:17 2023
 import cmd
 import models
 from models.base_model import BaseModel
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
     """ A class containig the command interpreter entry"""
     prompt = '(hbnb)'
 
-    list_class = ['BaseModel']
+    list_class = ['BaseModel', 'User']
 
     def do_EOF(self, args):
         """EOF to exit the program
