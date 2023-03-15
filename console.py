@@ -10,13 +10,14 @@ import models
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
+from models.city import City
 
 
 class HBNBCommand(cmd.Cmd):
     """ A class containig the command interpreter entry"""
     prompt = '(hbnb)'
 
-    list_class = ['BaseModel', 'User', 'State']
+    list_class = ['BaseModel', 'User', 'State', 'City']
 
     def do_EOF(self, args):
         """EOF to exit the program
