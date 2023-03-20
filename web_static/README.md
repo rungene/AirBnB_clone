@@ -114,7 +114,7 @@ Requirements:
 	- You are not allowed to use the style tag in the head tag
 	- Use inline styling for all your tags
 
-![](/img/0-index.png)
+![](/web_static/img/0-index.png)
 
 **Repo:**
 
