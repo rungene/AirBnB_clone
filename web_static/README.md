@@ -193,7 +193,7 @@ Requirements:
 		- styles/3-header.css: for the header style
 		- styles/3-footer.css: for the footer style
 
-![](/web_static/img/hbnb.png)
+![](../img/hbnb.png)
 
 **Repo:**
 
