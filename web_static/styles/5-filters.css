@@ -23,8 +23,11 @@ button:hover {
   opacity: 90%;
 }
 .locations, .amenities {
+	display: inline-block;
 	height: 100%;
 	width: 25%;
+	vertical-align: middle;
+	margin-left: 45px
 }
 
 .locations:first-child {
@@ -32,9 +35,13 @@ button:hover {
 }
 h3 {
 	font-weight: 600;
+	margin-top: 12px;
+	margin-bottom: 5px
 }
 
 h4 {
 	font-weight: 400;
 	font-size: 14px;
+	margin-top: 5px;
+	margin-bottom: 12px
 }
