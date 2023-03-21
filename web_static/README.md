@@ -256,3 +256,30 @@ Requirements:
 	- GitHub repository: AirBnB_clone
 	- Directory: web_static
 	- File: 4-index.html, styles/4-common.css, styles/3-header.css, styles/3-footer.css, styles/4-filters.css, images/
+
+> 5. More filters 
+
+Write an HTML page that displays a header, footer and a filters box.
+
+Layout: (based on 4-index.html)
+
+	- Locations and Amenities filters: 
+		- tag: div
+		- classname: locations for location tag and amenities for the other
+		- inside the section filters (same level as the button Search)
+		- height: 100% of the section filters
+		- width: 25% of the section filters
+		- border right #DDDDDD 1px only for the first left filter
+		- contains a title: 
+			- tag: h3
+			- font weight: 600
+			- text States or Amenities
+		- contains a subtitle: 
+			- tag: h4
+			- font weight: 400
+			- font size: 14px
+			- text with fake contents
+
+- Requirements:
+	- You must use: header, footer, section, button, h3, h4 tags
+	- No inline style

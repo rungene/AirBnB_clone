@@ -13,10 +13,10 @@ button {
 	width: 20%;
 	border-style: none;
 	border-radius: 4px;
-	position: absolute;
-	top: 50%;
-	right: 30px;
-	transform: translateY(-50%);
+	float: right;
+	margin-top: 11px;
+	margin-bottom: 11px;
+	margin-right: 30px;
 }
 
 button:hover {
