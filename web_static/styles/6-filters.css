@@ -50,11 +50,15 @@ h4 {
   display: none;
 }
 
-.popover:hover {
-	color: #FAFAFA;
+.popover {
+	background-color: #FAFAFA;
 	width: 100%;
 	border:#DDDDDD solid 1px;
 	border-radius: 4px;
 	list-style-type: none;
-	display: block;/* Display the dropdown */
+	display: none;
+}
+
+.locations:hover .popover, amenities:hover .popover {
+	display: inline-block;
 }
