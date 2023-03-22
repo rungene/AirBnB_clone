@@ -59,6 +59,6 @@ h4 {
 	display: none;
 }
 
-.locations:hover .popover, amenities:hover .popover {
+.locations:hover .popover, .amenities:hover .popover {
 	display: inline-block;
 }
